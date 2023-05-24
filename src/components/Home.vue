@@ -1,6 +1,7 @@
 <template>
     <h1>Email {{ email }}</h1>
     <h1>Mobile {{ mobile }}</h1>
+    <h1>Name {{ name }}</h1>
 </template>
 
 <script>
@@ -11,7 +12,9 @@
     {
         return {
             email:"bhatth@123.com",
-            mobile:123456789
+            mobile:123456789,
+            name:"RAm"
+
             
         }
     }
