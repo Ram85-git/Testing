@@ -3,6 +3,8 @@
 <img src="./assets/logo.png">
 <test/>
 <Home/>
+<Methods/>
+<Events/>
 </div>
 </template>
 
@@ -10,11 +12,15 @@
 
 import Test from './components/Test.vue';
 import Home from './components/Home.vue';
+import Methods from './components/Methods.vue';
+import Events from './components/Events.vue';
 export default {
   name: 'app',
   components: {
     Test,
-    Home
+    Home,
+    Methods,
+    Events
   }
 }
 </script>

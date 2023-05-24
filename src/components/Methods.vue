@@ -4,7 +4,9 @@
 
     <h1>All Data : {{ getData()}}</h1>
     <!-- <h1>All Data : {{ getData().name}}</h1> if we want to print only single data -->
+     
    </template>
+
 
 
 <script>
@@ -24,6 +26,7 @@ export default {
                 email:'anil@12123.com'
             }
         }
+
     }
 }
 </script>
