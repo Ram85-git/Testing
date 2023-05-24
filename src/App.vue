@@ -5,6 +5,7 @@
 <Home/>
 <Methods/>
 <Events/>
+<Two_way/>
 </div>
 </template>
 
@@ -14,13 +15,16 @@ import Test from './components/Test.vue';
 import Home from './components/Home.vue';
 import Methods from './components/Methods.vue';
 import Events from './components/Events.vue';
+import Two_way from './components/Two_way.vue';
+
 export default {
   name: 'app',
   components: {
     Test,
     Home,
     Methods,
-    Events
+    Events,
+    Two_way
   }
 }
 </script>
