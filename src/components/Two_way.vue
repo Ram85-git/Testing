@@ -57,6 +57,18 @@
         </li>
     </ul>
 
+    <div class="binding">
+         <h1>CSS Binding</h1>
+         <h2 :class="{green:colorfull}">CSS binding is going to perform</h2>
+         <button v-on:click="colorfull=!colorfull">Apply Style</button>
+    </div>
+    <br><br>
+  <div class="ref">
+    <h1> Ref in vue js </h1>
+    <input type="text" ref="input"/>
+    <button v-on:click="getData2">Click Me</button>
+  </div>
+
 </template>
 
 
@@ -92,7 +104,9 @@
                       email:'amit@12.com'
 
                     },
-                ]
+                ],
+
+                colorfull:false
             } 
 
         },
@@ -102,13 +116,18 @@
                 password:null,
             }
         },
-
-      
-        
         methods:{
             getData(){
                 console.log("values: ",this.email,this.password)
+            },
+            getData2(){
+                this.$refs.input.focus();
+                let val=this.$refs.input.value;
+                console.log(val);
+                this.$refs.input.style.color="red"
+            
             }
+            
         }
 
 
@@ -122,6 +141,36 @@
     
     h1 {
         color: olivedrab;
+    }
+
+    .green{
+        background-color: green;
+        height: 80px;
+        width: 300px;
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        
+    }
+    .binding{
+        background-color: rgb(40, 221, 221);
+        height: 200px;
+        width: 400px;
+        margin: auto;
+        padding-top: 20px;
+        border-radius: 20px;
+        border: 5px solid rgb(10, 68, 175);
+    }
+    .ref{
+        background-color: pink;
+        height: 200px;
+        width: 250px;
+        margin: auto;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+        border: 5px solid rgb(16, 221, 16);
     }
 
 </style>
