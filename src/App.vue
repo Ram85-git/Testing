@@ -3,18 +3,35 @@
 <img src="./assets/logo.png">
 <test/>
 <Home/>
+<Methods/>
+<Events/>
+<Two_way/>
 </div>
+
+<Table_data/>
 </template>
+
 
 <script>
 
 import Test from './components/Test.vue';
 import Home from './components/Home.vue';
+import Methods from './components/Methods.vue';
+import Events from './components/Events.vue';
+import Two_way from './components/Two_way.vue';
+
+import Table_data from './components/Table_data.vue';
 export default {
   name: 'app',
   components: {
     Test,
-    Home
+    Home,
+    Methods,
+    Events,
+    Two_way,
+    
+    Table_data
+    
   }
 }
 </script>
