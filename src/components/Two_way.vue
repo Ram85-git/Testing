@@ -68,7 +68,51 @@
     <input type="text" ref="input"/>
     <button v-on:click="getData2">Click Me</button>
   </div>
+  <br>
+  <br>
+  <h1>Simple Form</h1>
+  <label>Email : </label>
+  <input type="text" placeholder="Enter email"/>
+   <br> <br>
 
+   <br><br>
+   <h1>Assignment 1 </h1>
+   <br><br>
+   <lable>First Name</lable>
+   <input type="text" placeholder="Enter First Name" v-model="Fname"/>
+   <label>Last Name</label>
+   <input type="text" placeholder="Enter Last Name"  v-model="Lname" />
+   <label>Address</label>
+   <input type="text" placeholder="Enter Address"  v-model="Address"/>
+   <button v-on:click="submit">Add</button><br> <br><br><br>
+    <br>
+    <table  border="2px">
+        <tr>
+             <th>First Name </th>
+             <th>Last Name</th>
+             <th>Address</th>
+             <th>Check</th>
+             <th>Delete</th>
+        </tr>
+        <tr v-for="(item,index) in items" v-bind:key="index">
+            <td :class="{red:isRed}" >{{ item.Fname }}</td>
+            <td :class="{red:isRed}">{{ item.Lname }}</td>
+            <td :class="{red:isRed}">{{ item.Address}}</td>
+        
+        
+            <td>
+                <input type="checkbox"  v-on:click="isRed=!isRed" />
+            </td>
+            <td>
+                <i class="fa-solid fa-trash"  v-on:click.prevent="deleteItem(index)"></i>
+
+            </td>
+        </tr>
+
+
+        
+        <br><br>
+    </table>
 </template>
 
 
@@ -85,6 +129,7 @@
             return {
                 count:0, 
                 technology:[],
+                items:[],
                 who:null,
                 show:true,
                 course: ['java','python','SQL'],
@@ -106,7 +151,15 @@
                     },
                 ],
 
-                colorfull:false
+                Fname:'',
+                Lname:'',
+                Address:'',
+                isRed:false,
+                colorfull:false,
+                form: {
+
+                    
+                }
             } 
 
         },
@@ -114,6 +167,7 @@
             return {
                 email:null,
                 password:null,
+
             }
         },
         methods:{
@@ -126,9 +180,26 @@
                 console.log(val);
                 this.$refs.input.style.color="red"
             
+            },
+            Add(){
+                console.log("Data is added" , this.form);
+            },
+
+            submit: function(){
+                
+                this.items.push({'Fname': this.Lname,
+                'Lname':this.Lname,
+                'Address':this.Address});
+
+                this.Fname="";
+                this.Lname="";
+                this.Address="";
+
+            },
+            deleteItem(index){
+                this.items.splice(index,1);
             }
-            
-        }
+        },
 
 
 
@@ -171,6 +242,17 @@
         padding-right: 10px;
         border-radius: 10px;
         border: 5px solid rgb(16, 221, 16);
+    }
+    
+
+    table{
+        margin: auto;
+        
+        width: 900px;
+    }
+    
+    .red{
+        color: red;
     }
 
 </style>
