@@ -76,6 +76,7 @@
    <br> <br>
 
    <br><br>
+
    <h1>Assignment 1 </h1>
    <br><br>
    <lable>First Name</lable>
@@ -108,25 +109,37 @@
 
             </td>
         </tr>
-
-
-        
         <br><br>
     </table>
-</template>
+    <br><br>
+   <div class="toggle">
+      <user name="Reverse the Name" :alert="reverseMessage" />
+      <p>{{ message }}</p>
+      <User name="Alert" :alert="getUserName" />
+</div>
+ 
+ </template>
 
 
 <script>
-
+      
+      import User from './User.vue'
 
       
       export default {
-        
         name: "Two_way" ,
+        components:{
+            User
+        },
+
+
+
 
         data(){
             
             return {
+                childUser:"",
+
                 count:0, 
                 technology:[],
                 items:[],
@@ -156,10 +169,12 @@
                 Address:'',
                 isRed:false,
                 colorfull:false,
+                
                 form: {
 
                     
-                }
+                },
+                message:'Developer',
             } 
 
         },
@@ -171,6 +186,17 @@
             }
         },
         methods:{
+
+            getUserName(name){
+                alert("hello from parent")
+                this.childUser = name
+                
+            },
+            reverseMessage: function(){
+                this.message=this.message.split("").reverse().join("")
+
+            }
+            ,
             getData(){
                 console.log("values: ",this.email,this.password)
             },
@@ -254,5 +280,28 @@
     .red{
         color: red;
     }
+
+    .my::v-deep .my1 {
+        background-color: blue;
+    }
+
+    .toggle{
+        height: 200px;
+        width: 250px;
+        background-color: orange;
+        margin: auto;
+        padding: 15px;
+        border: 5px solid green;
+        
+    }
+
+
+
+
+
+
+
+
+
 
 </style>

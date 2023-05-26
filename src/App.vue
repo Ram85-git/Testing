@@ -7,7 +7,10 @@
 <Events/>
 <Two_way/>
 </div>
+
+<Table_data/>
 </template>
+
 
 <script>
 
@@ -17,6 +20,7 @@ import Methods from './components/Methods.vue';
 import Events from './components/Events.vue';
 import Two_way from './components/Two_way.vue';
 
+import Table_data from './components/Table_data.vue';
 export default {
   name: 'app',
   components: {
@@ -24,7 +28,10 @@ export default {
     Home,
     Methods,
     Events,
-    Two_way
+    Two_way,
+    
+    Table_data
+    
   }
 }
 </script>
